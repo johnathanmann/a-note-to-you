@@ -1,10 +1,12 @@
 import React from "react";
+import "../../styles/styles.css";
+import pen from "../../assets/imgs/pen.png";
 
 export default function Homepage({handlePageChange }){
     return(
-        <div>
-          <h1>Fullstack React App!</h1>
-          <h2>Powered by Johnny!</h2>
+        <div className="container center">
+          <h1 className="box">A note to you.</h1>
+          <img className="box" alt="A feather pen icon" src={pen} id="pen"/>
         </div>
     )
 }

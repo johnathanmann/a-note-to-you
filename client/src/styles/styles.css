@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Bitter;
+    src: url(../assets/fonts/Bitter-Light.ttf);
+}
+
+:root{
+    font-family: Bitter;
+    --gray: #D9D9D9;
+}
+
+body{
+    margin: 0px;
+    background-color: var(--gray);
+}
+
+.container {
+    display: flex;           
+    flex-direction: column;   
+    justify-content: center;   
+    align-items: center; 
+    height: 100vh;
+}
+
+.box {
+    text-align: center;
+}
+
+#pen{
+    height: 10vh;
+    display: block;
+    animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+0% {
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+50% {
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+}
+100% {
+ -webkit-transform: scale(1);
+transform: scale(1);
+}
+}

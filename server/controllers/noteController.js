@@ -27,7 +27,6 @@ async function createNote(req, res) {
   }
 }
 
-
 module.exports = {
   getAllNotes,
   getNoteById,
