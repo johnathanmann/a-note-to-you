@@ -2,15 +2,15 @@ const { Schema, model, Types } = require("mongoose");
 
 const noteSchema = new Schema ({
     recipient:{
-        type: string,
+        type: String,
         required: true
     },
     body:{
-        type: string,
+        type: String,
         required: true
     },
     sender:{
-        type: string,
+        type: String,
         required: true
     }
 });
