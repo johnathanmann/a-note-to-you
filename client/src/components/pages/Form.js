@@ -7,22 +7,28 @@ import heart from "../../assets/imgs/heart-stamp.png";
 import smile from "../../assets/imgs/smile-stamp.png";
 import star from "../../assets/imgs/star-stamp.png";
 
-function onClick(e) {
-    e.preventDefault();
- }
+ let recipientName = $("#formRecipient").val();
+ let body = $("#text-box").val();
+ let sender = $("#sender").val();
+ let sticker = $('[name="sticker"]').val();
+
+let uniqId = uniqid();
 
 async function noteForm() {
-    const recipient = $("#formRecipient").val();
-    const body = $("#text-box").val();
-    const sender = $("#sender").val();
-    const sticker = $('[name="sticker"]').val();
 
-    if (recipient) {
+    recipientName = $("#formRecipient").val();
+    body = $("#text-box").val();
+    sender = $("#sender").val();
+    sticker = $('[name="sticker"]').val();
+
+    const finalUniqId = recipientName+"-"+uniqId;
+
+    if (SubmitEvent) {
       const response = await fetch('/api/note', {
         method: 'POST',
         body: JSON.stringify({
-            uniqId: uniqid(`${recipient}-`),
-            recipient: recipient,
+            uniqId: finalUniqId,
+            recipient: recipientName,
             body: body,
             sender: sender,
             sticker: sticker
@@ -49,6 +55,8 @@ export default function Form(){
 
     const changeName = event => {
         setRecipient(event.target.value);
+        uniqId = uniqid();
+        console.log(recipientName)
     }
     const changeBody = event => {
         setBody(event.target.value);
@@ -101,8 +109,9 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker" required/>
                         <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
                     </div>
-                    <button className="btn" id="submit" onClick={() => noteForm()} onSubmit={(event) => event.preventDefault()}>Submit</button>
+                    <button className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
                     </form>
+                    <input value={recipient+"-"+uniqId}/>
             </div>
             <div id="note-preview">
                 <h3>Dear {recipient},</h3>
