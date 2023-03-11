@@ -3,6 +3,11 @@
     src: url(../assets/fonts/Bitter-Light.ttf);
 }
 
+@font-face {
+    font-family: Bitter-Medium;
+    src: url(../assets/fonts/Bitter-Medium.ttf);
+}
+
 :root{
     font-family: Bitter;
     --gray: #D9D9D9;

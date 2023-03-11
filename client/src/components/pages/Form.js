@@ -1,4 +1,5 @@
 import { useState } from "react";
+import $ from 'jquery';
 import "../../styles/form.css";
 import pen from "../../assets/imgs/pen.png";
 import heart from "../../assets/imgs/heart-stamp.png";
@@ -40,6 +41,25 @@ export default function Form(){
     const changeSender = event => {
         setSender(event.target.value);
     }
+
+    $('#smile').click(function(){
+        $('#note-preview h3').css({
+            'color': '#F1CC25'
+        });
+    })
+    
+    $('#star').click(function(){
+        $('#note-preview h3').css({
+            'color': '#6AB5EE'
+        });
+    })
+    
+    $('#heart').click(function(){
+        $('#note-preview h3').css({
+            'color': '#FD7BB7'
+        });
+    })
+
     return(
         <div id="form-container">
             <div id="form">
@@ -59,11 +79,11 @@ export default function Form(){
                     </div>
                     <div className="form-check">
                     <label><h2>Sticker</h2></label> <br/>
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" value="heart"/>
+                        <input type="radio" className="form-check-input" id="heart" value="heart" name="sticker"/>
                         <label><img className="stamp-preview" src={heart} alt="Pink heart icon"/></label>
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" value="star"/>
+                        <input type="radio" className="form-check-input" id="star" value="star" name="sticker"/>
                         <label><img className="stamp-preview" src={star} alt="Blue star icon"/></label>
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" value="smile"/>
+                        <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker"/>
                         <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
                     </div>
                     <button type="submit" className="btn" id="submit">Submit</button>

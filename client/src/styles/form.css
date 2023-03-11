@@ -57,6 +57,10 @@
     border-radius: 2px;
 }
 
+#note-preview h3{
+    font-family: Bitter-Medium;
+}
+
 .stamp-preview{
     height: 75px;
     vertical-align: middle;
