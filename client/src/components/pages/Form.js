@@ -7,19 +7,25 @@ import heart from "../../assets/imgs/heart-stamp.png";
 import smile from "../../assets/imgs/smile-stamp.png";
 import star from "../../assets/imgs/star-stamp.png";
 
- let recipientName = $("#formRecipient").val();
- let body = $("#text-box").val();
- let sender = $("#sender").val();
- let sticker = $('[name="sticker"]').val();
+let recipientName = $("#formRecipient").val();
 
 let uniqId = uniqid();
 
+function copy() {
+    let copyText = document.getElementById("share-link");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); 
+    navigator.clipboard.writeText(copyText.value);
+  }
+
 async function noteForm() {
 
+    copy()
+
     recipientName = $("#formRecipient").val();
-    body = $("#text-box").val();
-    sender = $("#sender").val();
-    sticker = $('[name="sticker"]').val();
+    let body = $("#text-box").val();
+    let sender = $("#sender").val();
+    let sticker = $('[name="sticker"]').val();
 
     const finalUniqId = recipientName+"-"+uniqId;
 
@@ -111,7 +117,7 @@ export default function Form(){
                     </div>
                     <button className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
                     </form>
-                    <input value={recipient+"-"+uniqId}/>
+                    <input id="share-link"value={recipient+"-"+uniqId}/>
             </div>
             <div id="note-preview">
                 <h3>Dear {recipient},</h3>
