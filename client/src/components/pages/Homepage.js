@@ -6,7 +6,7 @@ export default function Homepage({handlePageChange }){
     return(
         <div className="container center">
           <h1 className="box">A note to you.</h1>
-          <img className="box" alt="A feather pen icon" src={pen} id="pen"/>
+          <button onClick={()=> handlePageChange('Form')}><img className="box" alt="A feather pen icon button" src={pen} id="pen"/></button>
         </div>
     )
 }

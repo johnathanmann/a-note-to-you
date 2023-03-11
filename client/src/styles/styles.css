@@ -8,6 +8,10 @@
     --gray: #D9D9D9;
 }
 
+button{
+    all: unset;
+}
+
 body{
     margin: 0px;
     background-color: var(--gray);
