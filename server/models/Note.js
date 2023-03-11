@@ -12,6 +12,10 @@ const noteSchema = new Schema ({
     sender:{
         type: String,
         required: true
+    },
+    sticker:{
+        type: String,
+        required: true
     }
 });
 

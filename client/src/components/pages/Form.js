@@ -5,27 +5,34 @@ import pen from "../../assets/imgs/pen.png";
 import heart from "../../assets/imgs/heart-stamp.png";
 import smile from "../../assets/imgs/smile-stamp.png";
 import star from "../../assets/imgs/star-stamp.png";
-// async function noteForm() {
 
-//     if (projectTitle, projectDescription) {
-//       const response = await fetch('/api/projects', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//           user: userId,
-//           title: projectTitle,
-//           description: projectDescription
-//         }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-//       if (response.ok) {
-//         console.log('Post Posted');
-//       } else {
-//         alert(response.statusText);
-//       }
-//     }
-// };
+async function noteForm() {
+
+    const recipient = $("#formRecipient").val();
+    const body = $("#text-box").val();
+    const sender = $("#sender").val();
+    const sticker = $('[name="sticker"]').val();
+
+    if (SubmitEvent) {
+      const response = await fetch('/api/note', {
+        method: 'POST',
+        body: JSON.stringify({
+            recipient: recipient,
+            body: body,
+            sender: sender,
+            sticker: sticker
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        console.log('Post Posted');
+      } else {
+        alert(response.statusText);
+      }
+    }
+};
 
 export default function Form(){
     const [recipient, setRecipient] = useState("")
@@ -71,22 +78,22 @@ export default function Form(){
                     </div>
                     <div className="form-group">
                         <label><h2>Note body</h2></label> <br/>
-                        <input className="form-control"  id="text-box"rows="5" onInput={changeBody} value={body}></input>
+                        <input className="form-control"  id="text-box" rows="5" onInput={changeBody} value={body}></input>
                     </div>
                     <div className="form-group">
                         <label><h2>Sender</h2></label> <br/>
-                        <input type="text" className="form-control text-input" onInput={changeSender} value={sender}/>
+                        <input type="text" id="sender" className="form-control text-input" onInput={changeSender} value={sender}/>
                     </div>
                     <div className="form-check">
                     <label><h2>Sticker</h2></label> <br/>
-                        <input type="radio" className="form-check-input" id="heart" value="heart" name="sticker"/>
+                        <input type="radio" className="form-check-input" id="heart" value="heart" name="sticker" required/>
                         <label><img className="stamp-preview" src={heart} alt="Pink heart icon"/></label>
-                        <input type="radio" className="form-check-input" id="star" value="star" name="sticker"/>
+                        <input type="radio" className="form-check-input" id="star" value="star" name="sticker" required/>
                         <label><img className="stamp-preview" src={star} alt="Blue star icon"/></label>
-                        <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker"/>
+                        <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker" required/>
                         <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
                     </div>
-                    <button type="submit" className="btn" id="submit">Submit</button>
+                    <button type="submit" className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
                     </form>
             </div>
             <div id="note-preview">
