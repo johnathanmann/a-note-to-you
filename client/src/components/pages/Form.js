@@ -1,22 +1,27 @@
 import { useState } from "react";
 import $ from 'jquery';
+import uniqid from 'uniqid';
 import "../../styles/form.css";
 import pen from "../../assets/imgs/pen.png";
 import heart from "../../assets/imgs/heart-stamp.png";
 import smile from "../../assets/imgs/smile-stamp.png";
 import star from "../../assets/imgs/star-stamp.png";
 
-async function noteForm() {
+function onClick(e) {
+    e.preventDefault();
+ }
 
+async function noteForm() {
     const recipient = $("#formRecipient").val();
     const body = $("#text-box").val();
     const sender = $("#sender").val();
     const sticker = $('[name="sticker"]').val();
 
-    if (SubmitEvent) {
+    if (recipient) {
       const response = await fetch('/api/note', {
         method: 'POST',
         body: JSON.stringify({
+            uniqId: uniqid(`${recipient}-`),
             recipient: recipient,
             body: body,
             sender: sender,
@@ -28,6 +33,9 @@ async function noteForm() {
       });
       if (response.ok) {
         console.log('Post Posted');
+        $('#form-container').css({
+                'display': 'none'
+        });
       } else {
         alert(response.statusText);
       }
@@ -93,7 +101,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker" required/>
                         <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
                     </div>
-                    <button type="submit" className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
+                    <button className="btn" id="submit" onClick={() => noteForm()} onSubmit={(event) => event.preventDefault()}>Submit</button>
                     </form>
             </div>
             <div id="note-preview">

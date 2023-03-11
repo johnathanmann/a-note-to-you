@@ -18,6 +18,15 @@ async function getNoteById(req, res) {
   }
 }
 
+async function getNoteByUniqId(req, res) {
+  try{
+    const singleNote = await Note.findOne({"uniqId": req.params.uniqId})
+    res.status(200).json(singleNote)
+  } catch (err){
+    console.error(err)
+  }
+}
+
 async function createNote(req, res) {
   try{
     const newNote = await Note.create(req.body)
@@ -30,5 +39,6 @@ async function createNote(req, res) {
 module.exports = {
   getAllNotes,
   getNoteById,
-  createNote
+  createNote,
+  getNoteByUniqId
 };

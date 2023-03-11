@@ -1,6 +1,10 @@
 const { Schema, model, Types } = require("mongoose");
 
 const noteSchema = new Schema ({
+    uniqId:{
+        type: String,
+        required: true
+    },
     recipient:{
         type: String,
         required: true
