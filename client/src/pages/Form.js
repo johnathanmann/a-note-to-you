@@ -1,11 +1,11 @@
 import { useState } from "react";
 import $ from 'jquery';
 import uniqid from 'uniqid';
-import "../../styles/form.css";
-import pen from "../../assets/imgs/pen.png";
-import heart from "../../assets/imgs/heart-stamp.png";
-import smile from "../../assets/imgs/smile-stamp.png";
-import star from "../../assets/imgs/star-stamp.png";
+import "../styles/form.css";
+import pen from "../assets/imgs/pen.png";
+import heart from "../assets/imgs/heart-stamp.png";
+import smile from "../assets/imgs/smile-stamp.png";
+import star from "../assets/imgs/star-stamp.png";
 
 let recipientName = $("#formRecipient").val();
 
