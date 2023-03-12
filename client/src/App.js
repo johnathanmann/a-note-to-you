@@ -1,6 +1,19 @@
-import React from "react";
-import ReactApp from "./components/ReactApp";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
 
-const App = () => <ReactApp/>;
+import Homepage from "./pages/Homepage";
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
