@@ -4,9 +4,15 @@ import uniqid from 'uniqid';
 import "../styles/form.css";
 import copyIcon from "../assets/imgs/copy.png";
 import pen from "../assets/imgs/pen.png";
-import heart from "../assets/imgs/heart-stamp.png";
-import smile from "../assets/imgs/smile-stamp.png";
-import star from "../assets/imgs/star-stamp.png";
+
+import redStar from "../assets/imgs/red-star.png";
+import orangeStar from "../assets/imgs/orange-star.png";
+import yellowStar from "../assets/imgs/yellow-star.png";
+import greenStar from "../assets/imgs/green-star.png";
+import blueStar from "../assets/imgs/blue-star.png";
+import purpleStar from "../assets/imgs/purple-star.png";
+import pinkStar from "../assets/imgs/pink-star.png";
+import blackStar from "../assets/imgs/black-star.png";
 
 let recipientName = $("#formRecipient").val();
 
@@ -71,24 +77,48 @@ export default function Form(){
     const changeSender = event => {
         setSender(event.target.value);
     }
-
-    $('#smile').click(function(){
+    
+    $('#redStar').click(function(){
         $('#note-preview h3').css({
-            'color': '#F1CC25'
+            'color': "#de3232"
+        });
+    })
+    $('#orangeStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#f48737"
+        });
+    })
+    $('#yellowStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#f1cc25"
+        });
+    })
+    $('#greenStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#8ef063"
+        });
+    })
+    $('#blueStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#63acf0"
+        });
+    })
+    $('#purpleStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#d463f0"
+        });
+    })
+    $('#pinkStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#fd7bb7"
+        });
+    })
+    $('#blackStar').click(function(){
+        $('#note-preview h3').css({
+            'color': "#000"
         });
     })
     
-    $('#star').click(function(){
-        $('#note-preview h3').css({
-            'color': '#6AB5EE'
-        });
-    })
-    
-    $('#heart').click(function(){
-        $('#note-preview h3').css({
-            'color': '#FD7BB7'
-        });
-    })
 
     return(
         <div id="form-container">
@@ -109,12 +139,22 @@ export default function Form(){
                     </div>
                     <div className="form-check">
                     <label><h2>Sticker</h2></label> <br/>
-                        <input type="radio" className="form-check-input" id="heart" value="heart" name="sticker" required/>
-                        <label><img className="stamp-preview" src={heart} alt="Pink heart icon"/></label>
-                        <input type="radio" className="form-check-input" id="star" value="star" name="sticker" required/>
-                        <label><img className="stamp-preview" src={star} alt="Blue star icon"/></label>
-                        <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker" required/>
-                        <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
+                        <input type="radio" className="form-check-input" id="redStar" value="red" name="sticker" required/>
+                        <label><img className="stamp-preview" src={redStar} alt="red star icon"/></label>
+                        <input type="radio" className="form-check-input" id="orangeStar" value="orange" name="sticker" required/>
+                        <label><img className="stamp-preview" src={orangeStar} alt="orange star icon"/></label>
+                        <input type="radio" className="form-check-input" id="yellowStar" value="yellow" name="sticker" required/>
+                        <label><img className="stamp-preview" src={yellowStar} alt="yellow star icon"/></label>
+                        <input type="radio" className="form-check-input" id="greenStar" value="orange" name="sticker" required/>
+                        <label><img className="stamp-preview" src={greenStar} alt="green star icon"/></label>
+                        <input type="radio" className="form-check-input" id="blueStar" value="blue" name="sticker" required/>
+                        <label><img className="stamp-preview" src={blueStar} alt="blue star icon"/></label>
+                        <input type="radio" className="form-check-input" id="purpleStar" value="purple" name="sticker" required/>
+                        <label><img className="stamp-preview" src={purpleStar} alt="purple star icon"/></label>
+                        <input type="radio" className="form-check-input" id="pinkStar" value="pink" name="sticker" required/>
+                        <label><img className="stamp-preview" src={pinkStar} alt="pink star icon"/></label>
+                        <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
+                        <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
                     <button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button>
                     </form>

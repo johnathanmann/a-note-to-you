@@ -61,8 +61,12 @@
     font-family: Bitter-Medium;
 }
 
+.form-check{
+    margin-bottom: 15px;
+}
+
 .stamp-preview{
-    height: 75px;
+    height: 50px;
     vertical-align: middle;
 }
 
