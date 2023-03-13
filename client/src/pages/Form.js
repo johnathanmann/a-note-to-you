@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 import "../styles/form.css";
 import copyIcon from "../assets/imgs/copy.png";
 import pen from "../assets/imgs/pen.png";
+import {Link} from 'react-router-dom';
 
 import redStar from "../assets/imgs/red-star.png";
 import orangeStar from "../assets/imgs/orange-star.png";
@@ -156,7 +157,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button>
+                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button></Link>
                     </form>
             </div>
             <div id="note-preview">
