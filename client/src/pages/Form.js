@@ -2,6 +2,7 @@ import { useState } from "react";
 import $ from 'jquery';
 import uniqid from 'uniqid';
 import "../styles/form.css";
+import copyIcon from "../assets/imgs/copy.png";
 import pen from "../assets/imgs/pen.png";
 import heart from "../assets/imgs/heart-stamp.png";
 import smile from "../assets/imgs/smile-stamp.png";
@@ -92,7 +93,7 @@ export default function Form(){
     return(
         <div id="form-container">
             <div id="form">
-                <img className="box" alt="A feather pen icon button" src={pen} id="pen-static"/><h1>Write your note</h1>
+                <img className="box" alt="A feather pen icon button" src={pen} id="static-pen"/><h1>Write your note</h1>
                 <form>
                     <div className="form-group">
                         <label><h2>Recipient</h2></label> <br/>
@@ -115,9 +116,8 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="smile" value="smile" name="sticker" required/>
                         <label><img className="stamp-preview" src={smile} alt="Yellow smile icon"/></label>
                     </div>
-                    <button className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
+                    <button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button>
                     </form>
-                    <input id="share-link"value={recipient+"-"+uniqId}/>
             </div>
             <div id="note-preview">
                 <h3>Dear {recipient},</h3>

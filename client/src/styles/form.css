@@ -14,7 +14,7 @@
     display: flex;
 }
 
-#pen-static{
+#static-pen{
     height: 10vh;
     display: inline;
     vertical-align: middle;
@@ -74,4 +74,16 @@
     border: 1px solid #000;
     border-radius: 15px;
     padding: 10px;
+    vertical-align: middle;
+}
+
+#share-link{
+    all: unset;
+}
+
+#copy-icon{
+    height: 25px;
+    display: inline;
+    vertical-align: middle;
+    padding: 0px 5px;
 }
