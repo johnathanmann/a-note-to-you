@@ -31,7 +31,28 @@ export default function Note(){
 
     if(note.sticker === "red"){
       star = redStar
-  }
+    }
+    if(note.sticker === "orange"){
+      star = orangeStar
+    }
+    if(note.sticker === "yellow"){
+      star = yellowStar
+    }
+    if(note.sticker === "green"){
+      star = greenStar
+    }
+    if(note.sticker === "blue"){
+      star = blueStar
+    }
+    if(note.sticker === "purple"){
+      star = purpleStar
+    }
+    if(note.sticker === "pink"){
+      star = pinkStar
+    }
+    if(note.sticker === "black"){
+      star = blackStar
+    }
 
     return(
         <div className={note.sticker}>
@@ -39,6 +60,7 @@ export default function Note(){
             <input id="flap" type="checkbox"/>
             <label className="flap" for="flap"></label>
             <div className="envelope-back"></div>
+            <img src={star} alt="Star sticker icon" id="star-sticker"/>
             <div className="card">
             <h3 className="note-h3">Dear {note.recipient},</h3>
             <p>{note.body}</p>
