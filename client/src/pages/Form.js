@@ -2,9 +2,9 @@ import { useState } from "react";
 import $ from 'jquery';
 import uniqid from 'uniqid';
 import "../styles/form.css";
-import copyIcon from "../assets/imgs/copy.png";
 import pen from "../assets/imgs/pen.png";
 import {Link} from 'react-router-dom';
+import swal from 'sweetalert';
 
 import redStar from "../assets/imgs/red-star.png";
 import orangeStar from "../assets/imgs/orange-star.png";
@@ -19,13 +19,18 @@ let recipientName;
 
 let uniqId = uniqid();
 
+$( function() {
+    $( "#dialog" ).dialog();
+  } );
+
 
 async function noteForm() {
 
     recipientName = $("#formRecipient").val();
     let body = $("#text-box").val();
     let sender = $("#sender").val();
-    let sticker = $('[name="sticker"]').val();
+    let sticker = document.querySelector('input[name="sticker"]:checked').value;
+
 
     const finalUniqId = recipientName+"-"+uniqId;
 
@@ -57,6 +62,7 @@ async function noteForm() {
         let copyText ="a-note-to-you.herokuapp.com/#/dear/"+ uniqId;
         console.log(copyText)
         navigator.clipboard.writeText(copyText);
+        swal("Note share link copied");
       }
 
     copy(finalUniqId)
