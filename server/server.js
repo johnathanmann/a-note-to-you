@@ -16,14 +16,14 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-app.get('/*', function (req, res) { 
+// app.get('/*', function (req, res) { 
 
-  router.run(routes, req.path, function (Handler, state) {
-      var element = React.createElement(Handler);
-      var html = React.renderToString(element);
-      res.render('main', { content: html });
-  });
-});
+//   router.run(routes, req.path, function (Handler, state) {
+//       var element = React.createElement(Handler);
+//       var html = React.renderToString(element);
+//       res.render('main', { content: html });
+//   });
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => console.log(`Now listening on localhost: ${PORT}`));
