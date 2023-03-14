@@ -152,7 +152,7 @@ export default function Form(){
                         <label><img className="stamp-preview" src={orangeStar} alt="orange star icon"/></label>
                         <input type="radio" className="form-check-input" id="yellowStar" value="yellow" name="sticker" required/>
                         <label><img className="stamp-preview" src={yellowStar} alt="yellow star icon"/></label>
-                        <input type="radio" className="form-check-input" id="greenStar" value="orange" name="sticker" required/>
+                        <input type="radio" className="form-check-input" id="greenStar" value="green" name="sticker" required/>
                         <label><img className="stamp-preview" src={greenStar} alt="green star icon"/></label>
                         <input type="radio" className="form-check-input" id="blueStar" value="blue" name="sticker" required/>
                         <label><img className="stamp-preview" src={blueStar} alt="blue star icon"/></label>

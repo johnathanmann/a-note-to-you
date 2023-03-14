@@ -97,4 +97,5 @@
 
 .swal-button, .swal-button:not([disabled]):hover{
     background-color: var(--gray);
+    border: none;
 }
