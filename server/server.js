@@ -13,9 +13,14 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
-  // app.get('*', (req, res) =>
-  //   res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
-  // )
+  app.get('*', function (req, res) { 
+
+    router.run(routes, req.path, function (Handler, state) {
+        var element = React.createElement(Handler);
+        var html = React.renderToString(element);
+        res.render('main', { content: html });
+    });
+});
 }
 
 app.use(routes);
