@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-app.get('*', function (req, res) { 
+app.get('/*', function (req, res) { 
 
   router.run(routes, req.path, function (Handler, state) {
       var element = React.createElement(Handler);

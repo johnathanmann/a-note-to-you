@@ -2,6 +2,7 @@
   "name": "a-note-to-you",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://a-note-to-you.herokuapp.com/",
   "engines": {
     "node": "18.x"
   },
