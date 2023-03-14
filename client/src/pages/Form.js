@@ -15,20 +15,12 @@ import purpleStar from "../assets/imgs/purple-star.png";
 import pinkStar from "../assets/imgs/pink-star.png";
 import blackStar from "../assets/imgs/black-star.png";
 
-let recipientName = $("#formRecipient").val();
+let recipientName;
 
 let uniqId = uniqid();
 
-function copy() {
-    let copyText = document.getElementById("share-link");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); 
-    navigator.clipboard.writeText(copyText.value);
-  }
 
 async function noteForm() {
-
-    copy()
 
     recipientName = $("#formRecipient").val();
     let body = $("#text-box").val();
@@ -60,6 +52,14 @@ async function noteForm() {
         alert(response.statusText);
       }
     }
+
+    function copy(uniqId) {
+        let copyText ="a-note-to-you.herokuapp.com/#/dear/"+ uniqId;
+        console.log(copyText)
+        navigator.clipboard.writeText(copyText);
+      }
+
+    copy(finalUniqId)
 };
 
 export default function Form(){
@@ -157,7 +157,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={"a-note-to-you.herokuapp.com/dear/"+recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button></Link>
+                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}>Submit</button></Link>
                     </form>
             </div>
             <div id="note-preview">

@@ -13,11 +13,7 @@
     --gray: #b9b9b9;
 }
 
-button{
-    all: unset;
-}
-
-Link {
+button, a{
     all: unset;
 }
 

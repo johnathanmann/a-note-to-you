@@ -79,10 +79,13 @@
     border-radius: 15px;
     padding: 10px;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 #share-link{
     all: unset;
+    color: black;
+    text-decoration: none;
 }
 
 #copy-icon{
