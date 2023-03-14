@@ -22,3 +22,10 @@
 .black h3{
     color: #000;
 }
+
+#send-link{
+    text-align: center;
+    position: relative;
+    top: 20%;
+    text-decoration: underline;
+}

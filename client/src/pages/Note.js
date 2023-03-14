@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../styles/note.css";
 import "../styles/envelope.css";
 
@@ -54,6 +54,7 @@ export default function Note(){
     }
 
     return(
+      <div className="container">
         <div className={note.sticker}>
             <div className="envelope-container">
             <input id="flap" type="checkbox"/>
@@ -66,6 +67,8 @@ export default function Note(){
             <h3 className="note-h3">Sincerely, <br /> {note.sender}</h3>
             </div>
         </div>
+    </div>
+    <Link to="/" id="send-link">Send your own note</Link>
     </div>
     )
 }
