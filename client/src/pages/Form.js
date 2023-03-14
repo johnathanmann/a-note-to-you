@@ -62,6 +62,10 @@ async function noteForm() {
         let copyText ="a-note-to-you.herokuapp.com/#/dear/"+ uniqId;
         console.log(copyText)
         navigator.clipboard.writeText(copyText);
+        document.body.appendChild(copyText);
+        copyText.select();
+        document.execCommand('copy');
+        document.body.removeChild(copyText);
         swal("Note share link copied");
       }
 
