@@ -4,10 +4,9 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "root": "build/",
-  "clean_urls": false,
-  "routes": {
-    "/**": "index.html"
-  },
+    "routes": {
+      "/**": "index.html"
+    },
   "dependencies": {
     "@apollo/client": "^3.5.8",
     "@testing-library/jest-dom": "^5.11.4",
@@ -19,6 +18,7 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1"
   },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
