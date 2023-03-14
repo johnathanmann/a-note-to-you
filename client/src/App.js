@@ -1,5 +1,5 @@
 import {
-  HashRouter,
+  BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
@@ -10,12 +10,12 @@ import Note from "./pages/Note";
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/form" element={<Form />} />
         <Route path="/dear/:uniqId" element={<Note />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
