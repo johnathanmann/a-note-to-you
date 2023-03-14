@@ -157,7 +157,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button></Link>
+                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}><input id="share-link"value={"a-note-to-you.herokuapp.com/dear/"+recipient+"-"+uniqId} readOnly/><img src={copyIcon} alt="Clipboard copy icon" id="copy-icon"/>Submit</button></Link>
                     </form>
             </div>
             <div id="note-preview">

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import $ from "jquery";
 import "../styles/note.css";
 import "../styles/envelope.css";
 
@@ -12,7 +11,7 @@ import blueStar from "../assets/imgs/blue-star.png";
 import purpleStar from "../assets/imgs/purple-star.png";
 import pinkStar from "../assets/imgs/pink-star.png";
 import blackStar from "../assets/imgs/black-star.png";
-let star;
+let star = redStar;
 
 export default function Note(){
     let { uniqId } = useParams();
@@ -58,7 +57,7 @@ export default function Note(){
         <div className={note.sticker}>
             <div className="envelope-container">
             <input id="flap" type="checkbox"/>
-            <label className="flap" for="flap"></label>
+            <label className="flap" htmlFor="flap"></label>
             <div className="envelope-back"></div>
             <img src={star} alt="Star sticker icon" id="star-sticker"/>
             <div className="card">

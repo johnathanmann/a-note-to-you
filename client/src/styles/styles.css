@@ -17,6 +17,10 @@ button{
     all: unset;
 }
 
+Link {
+    all: unset;
+}
+
 body{
     margin: 0px;
     background-color: var(--gray);
