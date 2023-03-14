@@ -11,7 +11,7 @@ import blueStar from "../assets/imgs/blue-star.png";
 import purpleStar from "../assets/imgs/purple-star.png";
 import pinkStar from "../assets/imgs/pink-star.png";
 import blackStar from "../assets/imgs/black-star.png";
-let star = redStar;
+let star;
 
 export default function Note(){
     let { uniqId } = useParams();
