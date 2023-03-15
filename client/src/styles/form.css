@@ -2,7 +2,6 @@
     background-color: #ffffff;
     width: 80vw;
     height: auto;
-    margin: auto;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -12,6 +11,7 @@
     padding: 20px;
     border-radius: 20px;
     display: flex;
+    margin:auto;
 }
 
 #static-pen{
@@ -33,7 +33,7 @@ form{
     margin: 20px auto 0px auto;
 }
 
-.text-input, .text-input:focus, .text-input:focus-visible{
+.text-input{
     width: 40vw;
     height: 20px;
     padding: 10px;
@@ -43,7 +43,7 @@ form{
     font-family: Bitter;
 }
 
-#text-box, #text-box:focus-visible{
+#text-box{
     width: 40vw;
     padding: 10px;
     border-radius: 15px;
@@ -107,9 +107,16 @@ form{
 }
 
 @media (max-width: 938px){
+    #static-pen{
+        height: 5vh;
+    }
+    #form h1{
+        font-size: 25px;
+    }
+
     #form-container{
-        margin: 20px auto;
         display: block;
+        margin: 100px auto;
     }
 
     #note-preview{
