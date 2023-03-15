@@ -3,7 +3,7 @@ import $ from 'jquery';
 import uniqid from 'uniqid';
 import "../styles/form.css";
 import pen from "../assets/imgs/pen.png";
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import swal from 'sweetalert';
 import copy from 'copy-to-clipboard';
 
@@ -16,21 +16,23 @@ import purpleStar from "../assets/imgs/purple-star.png";
 import pinkStar from "../assets/imgs/pink-star.png";
 import blackStar from "../assets/imgs/black-star.png";
 
-let recipientName;
+let recipientName;;
 
 let uniqId = uniqid();
 
-async function noteForm() {
+export default function Form(){
+    const navigate = useNavigate();
 
+  function handleClick() {
+    navigate("/");
+  }
+
+    async function noteForm() {
     recipientName = $("#formRecipient").val();
     let body = $("#text-box").val();
     let sender = $("#sender").val();
     let sticker = document.querySelector('input[name="sticker"]:checked').value;
-
-
     const finalUniqId = recipientName+"-"+uniqId;
-    copy("https://a-note-to-you.herokuapp.com/#/dear/"+finalUniqId);
-    swal("Note share link copied");
 
     if (SubmitEvent) {
       const response = await fetch('/api/note', {
@@ -51,13 +53,15 @@ async function noteForm() {
         $('#form-container').css({
                 'display': 'none'
         });
+        copy("https://a-note-to-you.herokuapp.com/#/dear/"+finalUniqId);
+        swal("Note share link copied");
+        handleClick();
       } else {
         alert(response.statusText);
       }
     }
 };
 
-export default function Form(){
     const [recipient, setRecipient] = useState("")
     const [body, setBody] = useState("")
     const [sender, setSender] = useState("")
@@ -152,7 +156,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}>Submit</button></Link>
+                    <button className="btn" id="submit" onClick={() => noteForm()}>Submit</button>
                     </form>
             </div>
             <div id="note-preview">
