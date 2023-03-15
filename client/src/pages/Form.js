@@ -5,6 +5,7 @@ import "../styles/form.css";
 import pen from "../assets/imgs/pen.png";
 import {Link} from 'react-router-dom';
 import swal from 'sweetalert';
+import copy from 'copy-to-clipboard';
 
 import redStar from "../assets/imgs/red-star.png";
 import orangeStar from "../assets/imgs/orange-star.png";
@@ -19,13 +20,7 @@ let recipientName;
 
 let uniqId = uniqid();
 
-$( function() {
-    $( "#dialog" ).dialog();
-  } );
-
-
 async function noteForm() {
-    make_copy_button(document.getElementById("#submit"));
 
     recipientName = $("#formRecipient").val();
     let body = $("#text-box").val();
@@ -34,6 +29,8 @@ async function noteForm() {
 
 
     const finalUniqId = recipientName+"-"+uniqId;
+    copy("https://a-note-to-you.herokuapp.com/#/dear/"+finalUniqId);
+    swal("Note share link copied");
 
     if (SubmitEvent) {
       const response = await fetch('/api/note', {
@@ -155,7 +152,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <button className="btn" id="submit" onClick={() => noteForm()}><Link to="/">Submit</Link></button>
+                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}>Submit</button></Link>
                     </form>
             </div>
             <div id="note-preview">
