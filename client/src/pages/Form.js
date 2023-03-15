@@ -25,6 +25,7 @@ $( function() {
 
 
 async function noteForm() {
+    make_copy_button(document.getElementById("#submit"));
 
     recipientName = $("#formRecipient").val();
     let body = $("#text-box").val();
@@ -57,19 +58,6 @@ async function noteForm() {
         alert(response.statusText);
       }
     }
-
-    function copy(uniqId) {
-        swal("Note share link copied");
-        let copyText ="a-note-to-you.herokuapp.com/#/dear/"+ uniqId;
-        console.log(copyText)
-        navigator.clipboard.writeText(copyText);
-        document.body.appendChild(copyText);
-        copyText.select();
-        document.execCommand('copy');
-        document.body.removeChild(copyText);
-      }
-
-    copy(finalUniqId)
 };
 
 export default function Form(){
@@ -167,7 +155,7 @@ export default function Form(){
                         <input type="radio" className="form-check-input" id="blackStar" value="black" name="sticker" required/>
                         <label><img className="stamp-preview" src={blackStar} alt="black star icon"/></label>
                     </div>
-                    <Link to="/"><button className="btn" id="submit" onClick={() => noteForm()}>Submit</button></Link>
+                    <button className="btn" id="submit" onClick={() => noteForm()}><Link to="/">Submit</Link></button>
                     </form>
             </div>
             <div id="note-preview">
